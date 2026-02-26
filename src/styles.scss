@@ -116,4 +116,40 @@
   .new__mens-img {
     margin-bottom: $mb-6;
   }
-}
+  .new__mens-img {
+    width: 220px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .new__sneaker-img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+  }
+  .footer__social {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #111;
+    color: #fff;
+    font-size: 22px;
+    transition: all 0.3s ease;
+  }
+
+  .footer__social:hover {
+    background: radial-gradient(circle at 30% 107%, 
+      #fdf497 0%, 
+      #fdf497 5%, 
+      #fd5949 45%, 
+      #d6249f 60%, 
+      #285AEB 90%);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    color: white;
+  }
+
+} 
