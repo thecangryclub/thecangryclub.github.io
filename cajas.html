@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="static/css/styles.css">
+<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<title>Mayorista - THECANGRYCLUB</title>
+
+<style>
+
+/* ===== BLOQUE PROFESIONAL ===== */
+
+.info-mayorista{
+  margin-top:120px;
+  padding:35px;
+  background:#f5f5f5;
+  border-left:5px solid black;
+}
+
+.info-mayorista h3{
+  margin-bottom:15px;
+}
+
+.info-mayorista p{
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+.info-highlight{
+  font-weight:bold;
+}
+
+/* ===== GRID CAJAS ===== */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:50px;
+}
+
+.card{
+  border:1px solid #ddd;
+  padding:15px;
+  text-align:center;
+  background:white;
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:contain;
+}
+
+.card h4{
+  margin:10px 0 5px 0;
+}
+
+.card p{
+  font-size:14px;
+  margin:3px 0;
+}
+
+.card button{
+  margin-top:10px;
+  padding:8px;
+  background:black;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== CARRITO ===== */
+
+.cart{
+  margin-top:60px;
+  border-top:2px solid black;
+  padding-top:25px;
+}
+
+.cart-item{
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.whatsapp{
+  margin-top:15px;
+  padding:10px;
+  background:#25D366;
+  color:white;
+  border:none;
+  cursor:pointer;
+  width:100%;
+}
+
+.section-title{
+  margin-top:140px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER COMPLETO ===== -->
+
+<header class="l-header" id="header">
+  <nav class="nav bd-grid">
+    <div class="nav__toggle" id="nav-toggle">
+      <i class="bx bxs-grid"></i>
+    </div>
+
+    <a href="index.html" class="nav__logo">THECANGRYCLUB</a>
+
+    <a href="https://wa.me/5493751620900?text=Hola%20quiero%20info%20mayorista"
+       target="_blank">
+       WhatsApp
+    </a>
+
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
+        <li class="nav__item">
+          <a href="index.html" class="nav__link">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="index.html#new" class="nav__link">New</a>
+        </li>
+        <li class="nav__item">
+          <a href="index.html#Women" class="nav__link">Women</a>
+        </li>
+        <li class="nav__item">
+          <a href="index.html#children" class="nav__link">Children</a>
+        </li>
+         <li class="nav__item">
+          <a href="index.html#girls" class="nav__link">Girls</a>
+        </li>
+        <li class="nav__item">
+          <a href="cajas.html" class="nav__link active">Mayorista</a>
+        </li>
+        <li class="nav__item">
+          <a href="shop.html" class="nav__link">Shop</a>
+        </li>
+   </ul>
+    </div>
+
+    <div class="nav__shop">
+      <i class="bx bx-shopping-bag"></i>
+    </div>
+
+  </nav>
+</header>
+
+<!-- ===== CONTENIDO ===== -->
+
+<section class="section bd-grid">
+
+  <h2 class="section-title">Cajas Mayoristas</h2>
+
+  <!-- TEXTO PROFESIONAL -->
+
+  <div class="info-mayorista">
+
+    <h3>Condiciones de Venta por Caja Completa</h3>
+
+    <p>
+      Las compras bajo modalidad <span class="info-highlight">caja completa</span> 
+      corresponden exclusivamente a un único modelo seleccionado.
+    </p>
+
+    <p>
+      En líneas de adulto, las cajas incluyen talles surtidos dentro del rango 
+      <span class="info-highlight">38 al 42</span>.
+    </p>
+
+    <p>
+      En líneas infantiles, los talles se distribuyen entre 
+      <span class="info-highlight">27 al 37</span>.
+    </p>
+
+    <p>
+      La composición de talles responde a criterios comerciales estándar para garantizar una rotación equilibrada.
+    </p>
+
+    <span class="info-highlight">Los precios indicados corresponden exclusivamente al producto y no incluyen gastos de envío. El costo de entrega se coordinará de forma personalizada a través del chat</span>.
+  </div>
+
+  <!-- PRODUCTOS -->
+
+  <div class="grid">
+
+    <div class="card" data-modelo="LACOSTE" data-precio="360000" data-pares="12">
+      <img src="static/img/featured4.png">
+      <h4>LACOSTE</h4>
+      <p>Caja x12 pares</p>
+      <p>$360000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="ADIDAS CAMPUS" data-precio="300000" data-pares="12">
+      <img src="static/img/featured1.png">
+      <h4>ADIDAS CAMPUS</h4>
+      <p>Caja x12 pares</p>
+      <p>$300000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="VANS ULTRA RANGER" data-precio="360000" data-pares="12">
+      <img src="static/img/featured5.png">
+      <h4>VANS ULTRA RANGER</h4>
+      <p>Caja x12 pares</p>
+      <p>$360000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="VANS OF THE WALL" data-precio="300000" data-pares="12">
+      <img src="static/img/featured2.png">
+      <h4>VANS OF THE WALL</h4>
+      <p>Caja x12 pares</p>
+      <p>$300000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="NIKE FLY-EASY" data-precio="300000" data-pares="12">
+      <img src="static/img/featured3.png">
+      <h4>NIKE FLY-EASE</h4>
+      <p>Caja x12 pares</p>
+      <p>$300000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+
+    <div class="card" data-modelo="NIKE SOFT DEPORTIVA" data-precio="200000" data-pares="12">
+      <img src="static/img/women6.png">
+      <h4>NIKE SOFT DEPORTIVA</h4>
+      <p>Caja x12 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="NIKE AIR ZOOM" data-precio="200000" data-pares="12">
+      <img src="static/img/women7.png">
+      <h4>NIKE AIR ZOOM</h4>
+      <p>Caja x12 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="CHATITAS" data-precio="180000" data-pares="12">
+      <img src="static/img/women2.png">
+      <h4>CHATITAS</h4>
+      <p>Caja x12 pares</p>
+      <p>$180000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="BOTAS" data-precio="220000" data-pares="12">
+      <img src="static/img/women3.png">
+      <h4>BOTAS</h4>
+      <p>Caja x12 pares</p>
+      <p>$220000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="ZAPAS FITNESS" data-precio="200000" data-pares="12">
+      <img src="static/img/women9.png">
+      <h4>ZAPAS FITNESS</h4>
+      <p>Caja x12 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="SANDALIAS" data-precio="160000" data-pares="12">
+      <img src="static/img/women4.png">
+      <h4>SANDALIAS</h4>
+      <p>Caja x12 pares</p>
+      <p>$160000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="NIKE SAPATILHA" data-precio="160000" data-pares="12">
+      <img src="static/img/women8.png">
+      <h4>NIKE ZAPATILHA</h4>
+      <p>Caja x12 pares</p>
+      <p>$160000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="ADIDAS CAMPUS-CRIATURA" data-precio="220000" data-pares="10">
+      <img src="static/img/children1.png">
+      <h4>ADIDAS CAMPUS(NENES)</h4>
+      <p>Caja x10 pares</p>
+      <p>$220000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="DC MANTECA 4" data-precio="240000" data-pares="12">
+      <img src="static/img/children2.png">
+      <h4>DC MANTECA 4</h4>
+      <p>Caja x12 pares</p>
+      <p>$240000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="FILA" data-precio="160000" data-pares="12">
+      <img src="static/img/children3.png">
+      <h4>FILA</h4>
+      <p>Caja x12 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="NIKE DRIVE" data-precio="160000" data-pares="12">
+      <img src="static/img/children4.png">
+      <h4>NIKE DRIVE</h4>
+      <p>Caja x12 pares</p>
+      <p>$160000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+    <div class="card" data-modelo="SANDALIA BLANCA" data-precio="210000" data-pares="12">
+      <img src="static/img/women01.png">
+      <h4>SANDALIA BLANCA</h4>
+      <p>Caja x12 pares</p>
+      <p>$210000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+    <div class="card" data-modelo="ADIDAS CAMPUS(NENA)" data-precio="200000" data-pares="10">
+      <img src="static/img/image.png">
+      <h4>ADIDAS CAMPUS(NENAS)</h4>
+      <p>Caja x10 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+    <div class="card" data-modelo="NIKE JORDAN(NENAS)" data-precio="200000" data-pares="10">
+      <img src="static/img/JordM2.png">
+      <h4>NIKE JORDAN(NENAS)</h4>
+      <p>Caja x10 pares</p>
+      <p>$200000</p>
+      <button onclick="agregarCaja(this)">Añadir caja</button>
+    </div>
+
+
+  </div>
+
+  <!-- CARRITO -->
+
+  <div class="cart">
+    <h3>Carrito Mayorista</h3>
+    <div id="cart-items"></div>
+    <p><strong>Total: $<span id="total">0</span></strong></p>
+    <button class="whatsapp" onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+  </div>
+
+</section>
+
+<script>
+
+let carrito = [];
+
+function agregarCaja(boton){
+  const card = boton.parentElement;
+  const modelo = card.dataset.modelo;
+  const precio = parseInt(card.dataset.precio);
+  const pares = card.dataset.pares;
+
+  carrito.push({modelo, precio, pares});
+  actualizarCarrito();
+}
+
+function actualizarCarrito(){
+  const contenedor = document.getElementById("cart-items");
+  contenedor.innerHTML = "";
+  let total = 0;
+
+  carrito.forEach((item)=>{
+    total += item.precio;
+    contenedor.innerHTML += 
+      `<div class="cart-item">
+        ${item.modelo} - Caja x${item.pares} - $${item.precio}
+      </div>`;
+  });
+
+  document.getElementById("total").innerText = total;
+}
+
+function enviarPedido(){
+  if(carrito.length === 0){
+    alert("El carrito está vacío");
+    return;
+  }
+
+  let mensaje = "Hola, quiero comprar por mayor:%0A";
+
+  carrito.forEach((item)=>{
+    mensaje += `- ${item.modelo} (Caja x${item.pares}) - $${item.precio}%0A`;
+  });
+
+  const total = carrito.reduce((a,b)=>a+b.precio,0);
+  mensaje += `%0ATotal: $${total}`;
+
+  window.open("https://wa.me/5493751620900?text=" + mensaje,"_blank");
+}
+
+</script>
+
+</body>
+</html>
