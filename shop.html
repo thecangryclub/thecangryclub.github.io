@@ -1,384 +1,757 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="es">
 
-    <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="static/css/styles.css" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ===== BOX ICONS ===== -->
-    <link
-      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <title>THECANGRYCLUB</title>
-  </head>
-  <body>
-    <!--===== HEADER =====-->
-    <header class="l-header" id="header">
-      <nav class="nav bd-grid">
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="bx bxs-grid"></i>
-        </div>
-        <a href="" class="nav__logo">THECANGRYCLUB</a>
-        <a href="https://wa.me/5493751620900?text=Hola%20vengo%20desde%20la%20web%20TheCangryClub%20y%20quiero%20info%20sobre%20las%20zapatillas" target="_blank">
-            WhatsApp
-        </a>
+<title>THECANGRYCLUB</title>
+
+<link rel="stylesheet" href="static/css/styles.css">
+
+<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+
+<style>
+
+/* ===== PRODUCT CARD ===== */
+
+.sneaker{
+background:white;
+border-radius:15px;
+padding:12px;
+box-shadow:0 5px 12px rgba(0,0,0,0.05);
+
+display:flex;
+flex-direction:column;
+height:100%;
+}
+
+/* ===== BOTON ===== */
+
+.add-btn{
+
+margin-top:auto;
+padding:6px 16px;
+
+background:white;
+color:black;
+
+border:2px solid black;
+border-radius:30px;
+
+font-size:13px;
+cursor:pointer;
+
+transition:0.25s;
+
+}
+
+.add-btn:hover,
+.add-btn:active{
+
+background:black;
+color:white;
+
+}
+
+/* ===== CARRITO ===== */
+
+.cart-box{
+
+margin-top:40px;
+padding:20px;
+border:1px solid #ccc;
+
+}
+
+.cart-item{
+
+font-size:14px;
+
+}
+
+.whatsapp-btn{
+
+margin-top:15px;
+padding:10px;
+background:#25D366;
+color:white;
+border:none;
+cursor:pointer;
+width:100%;
+
+}
+
+/* ===== SEARCH ===== */
+
+.search-box{
+
+text-align:center;
+margin:30px 0;
+
+}
+
+.search-box input{
+
+padding:10px;
+width:250px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="l-header" id="header">
+
+<nav class="nav bd-grid">
+
+<div class="nav__toggle" id="nav-toggle">
+<i class="bx bxs-grid"></i>
+</div>
+
+<a href="index.html" class="nav__logo">THECANGRYCLUB</a>
+
+<a href="https://wa.me/5493751620900?text=https://wa.me/5493751620900?text=Hola,%20quiero%20más%20información!" target="_blank">
+WhatsApp
+</a>
+
+<div class="nav__menu" id="nav-menu">
+
+<ul class="nav__list">
+
+<li class="nav__item">
+<a href="index.html" class="nav__link">Home</a>
+</li>
+
+<li class="nav__item">
+<a href="index.html#new" class="nav__link">New</a>
+</li>
+
+<li class="nav__item">
+<a href="index.html#Women" class="nav__link">Women</a>
+</li>
+
+<li class="nav__item">
+<a href="index.html#children" class="nav__link">Children</a>
+</li>
+
+<li class="nav__item">
+<a href="cajas.html" class="nav__link">Mayorista</a>
+</li>
+
+<li class="nav__item">
+<a href="shop.html" class="nav__link active">Shop</a>
+</li>
+
+</ul>
+
+</div>
+
+<div class="nav__shop">
+<i class="bx bx-shopping-bag"></i>
+</div>
+
+</nav>
+
+</header>
+
+<!-- MAIN -->
+<main class="l-main">
+
+<!-- SEARCH -->
 
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a href="index.html" class="nav__link active">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="index.html#new" class="nav__link">New</a>
-            </li>
-            <li class="nav__item">
-              <a href="index.html#Women" class="nav__link">Women</a>
-            </li>
-            <li class="nav__item">
-              <a href="index.html#children" class="nav__link">Children</a>
-            </li>
-            <li class="nav__item">
-              <a href="cajas.html" class="nav__link">Mayorista</a>
-            </li>
-            <li class="nav__item">
-              <a href="#shop" class="nav__link active">Shop</a>
-            </li>
-          </ul>
-        </div>
-        <div class="nav__shop">
-          <i class="bx bx-shopping-bag"></i>
-        </div>
-      </nav>
-    </header>
-    <main class="l-main"></main>
+        <section class="filters section">
+            <div class="search-box">
+              <input type="text" id="searchInput" placeholder="Search sneakers...">
+            </div>
 
-    <style>
-      .add-btn{
-        margin-top:10px;
-        padding:6px 10px;
-        background:black;
-        color:white;
-        border:none;
-        cursor:pointer;
-        font-size:14px;
-      }
+            <div id="resultsCounter"></div>
 
-      .cart-box{
-        margin-top:40px;
-        padding:20px;
-        border:1px solid #ccc;
-      }
+            <div id="noResultsMessage" style="display:none;">
+            <p>😕 No sneakers found</p>
+            <span>Try another search</span>
+            </div>
 
-      .cart-box h3{
-        margin-bottom:10px;
-      }
+            <h2 class="section-title">Buscar Zapatillas</h2>
+            <div class="filters__container" style="text-align:center; margin-bottom:40px;">
+                <label>Marca:</label>
+                <select id="brandFilter">
+                    <option value="all">Todas</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="botas">Botas</option>
+                    <option value="dc">DC</option>
+                    <option value="donna">Donna</option>
+                    <option value="fila">Fila</option>
+                    <option value="fitness">Fitness</option>
+                    <option value="lacoste">Lacoste</option>
+                    <option value="molecas">Molecas</option>
+                    <option value="nike">Nike</option>
+                    <option value="polo">Polo</option>
+                    <option value="sandalia">Sandalia</option>
+                    <option value="vans">Vans</option>
+                </select>
 
-      .cart-item{
-        font-size:14px;
-      }
+                <label style="margin-left:20px;">Talle:</label>
+                <select id="sizeFilter">
+                    <option value="all">Todos</option>
+                    <script>
+                        // Generar talles dinámicamente del 34 al 42
+                        for(let i=24; i<=42; i++) document.write(`<option value="${i}">${i}</option>`);
+                    </script>
+                </select>
+            </div>
+        </section>
 
-      .whatsapp-btn{
-        margin-top:15px;
-        padding:10px;
-        background:#25D366;
-        color:white;
-        border:none;
-        cursor:pointer;
-        width:100%;
-      }
-    </style>
-  </head>
+<!-- PRODUCTOS -->
 
-  <body>
+<section class="featured section" id="shop">
 
-    <section class="featured section" id="shop">
-      <h2 class="section-title">All Products(Compras individuales)</h2>
+<h2 class="section-title">All Products</h2>
 
-      <div class="featured__container bd-grid">
+<div class="featured__container bd-grid">
 
+<!-- AQUI VAN TUS PRODUCTOS -->
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="lacoste" data-size="38,39,40,41,42">
+            <span class="badge">New</span>
             <img src="static/img/featured4.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">LACOSTE</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">38 al 42</span>
-            <span class="sneaker__preci">$35000</span>
+            <span class="price-old">$45000</span>
+            <span class="price-new">$35000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="adidas" data-size="38,40,42">
+            <span class="badge">Sale</span>
             <img src="static/img/featured1.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">ADIDAS CAMPUS</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">38, 40, 42</span>
-            <span class="sneaker__preci">$30000</span>
+            <span class="price-old">$40000</span>
+            <span class="price-new">$30000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
           
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="vans" data-size="38,39,40,41,42">
+            <span class="badge">New</span>
             <img src="static/img/featured5.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">VANS "ULTRA RANGER"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">38 al 42</span>
-            <span class="sneaker__preci">$35000</span>
+            <span class="price-old">$45000</span>
+            <span class="price-new">$35000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="vans" data-size="38,40,41,42">
+            <span class="badge">Sale</span>
             <img src="static/img/featured2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">VANS "OFF THE WALL"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">38, 40 al 42</span>
-            <span class="sneaker__preci">$30000</span>
+            <span class="price-old">$40000</span>
+            <span class="price-new">$30000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="37,38">
+            <span class="badge">Sale</span>
             <img src="static/img/featured3.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE "FLY-EASE"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">37, 38</span>
-            <span class="sneaker__preci">$30000</span>
+            <span class="price-old">$40000</span>
+            <span class="price-new">$30000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="donna" data-size="37">
+            <span class="badge">Sale</span>
             <img src="static/img/women5.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">DONNA</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">36, 37</span>
-            <span class="sneaker__preci">$18000</span>
+            <span class="nav__link">37</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$18000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="donna" data-size="36">
+            <span class="badge">Sale</span>
+            <img src="static/img/women5-2.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">DONNA</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">36</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$18000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="sneaker" data-brand="donna" data-size="35">
+            <span class="badge">Sale</span>
             <img src="static/img/women1.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">Zapas Mujer</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">35</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="price-old">$19000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+          <article class="sneaker" data-brand="donna" data-size="35">
+            <span class="badge">Sale</span>
+            <img src="static/img/women1-2.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">Zapas Mujer</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">35</span>
+            <span class="price-old">$19000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="35,36,37,38">
+            <span class="badge">Sale</span>
             <img src="static/img/women6.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE "SOFT DEPORTIVA"</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">35, 39</span>
-            <span class="sneaker__preci">$18000</span>
+            <span class="nav__link">35, 36, 37, 38</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$18000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="34,36">
+            <span class="badge">Sale</span>
             <img src="static/img/women7.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE "AIR ZOOM"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">34, 36</span>
-            <span class="sneaker__preci">$18000</span>
+            <span class="price-old">$23000</span>
+            <span class="price-new">$18000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="molecas" data-size="35,36,38,39">
+            <span class="badge">Sale</span>
             <img src="static/img/women2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">Chatitas</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">35 al 39</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="nav__link">34, 35, 36, 38, 39</span>
+            <span class="price-old">$18500</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="molecas" data-size="37">
+            <span class="badge">Sale</span>
+            <img src="static/img/women2-2.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">Chatitas</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">37</span>
+            <span class="price-old">$20000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="sneaker" data-brand="botas" data-size="37">
+            <span class="badge">Sale</span>
             <img src="static/img/women3.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">Botas</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav_link">35, 37</span>
-            <span class="sneaker__preci">$20000</span>
+            <span class="nav_link">37</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="botas" data-size="35">
+            <span class="badge">Sale</span>
+            <img src="static/img/women3-1.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">Botas</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav_link">35</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="sneaker" data-brand="fitness" data-size="34,35,36,37">
+            <span class="badge">Sale</span>
             <img src="static/img/women9.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">Zapas Fitness</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav_link">35, 37</span>
-            <span class="sneaker__preci">$18000</span>
+            <span class="nav_link">34, 35, 36, 37</span>
+            <span class="price-old">$28000</span>
+            <span class="price-new">$18000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="sandalia" data-size="35,36,37">
+            <span class="badge">Sale</span>
             <img src="static/img/women4.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">Sandalia</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">35</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="nav__link">35, 36, 37</span>
+            <span class="price-old">$19000</span>
+            <span class="price-new">$18500</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="38">
+            <span class="badge">Sale</span>
             <img src="static/img/women8.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE "SAPATILHA"</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">36, 38</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="nav__link">38</span>
+            <span class="price-old">$27000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+          <article class="sneaker" data-brand="nike" data-size="36">
+            <span class="badge">Sale</span>
+            <img src="static/img/women8-2.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">NIKE "SAPATILHA"</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">36</span>
+            <span class="price-old">$27000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="adidas" data-size="32,33">
+            <span class="badge">Sale</span>
             <img src="static/img/children1.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">ADIDAS CAMPUS</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">28, 32, 34</span>
-            <span class="sneaker__preci">$20000</span>
+            <span class="nav__link">32, 33</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="dc" data-size="38">
+            <span class="badge">Sale</span>
             <img src="static/img/children2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">DC "MANTECA 4"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">38</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="price-old">$30000</span>
+            <span class="price-new">$25000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="fila" data-size="35,36,37,38,39">
+            <span class="badge">Sale</span>
             <img src="static/img/children3.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">FILA</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">35 al 39</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="price-old">$33000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="28,29,32,33,34">
+            <span class="badge">Sale</span>
             <img src="static/img/children4.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE DRIVE</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">28, 32, 34</span>
-            <span class="sneaker__preci">$15000</span>
+            <span class="nav__link">28, 29, 32, 33, 34</span>
+            <span class="price-old">$18000</span>
+            <span class="price-new">$15000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
 
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="vans" data-size="34">
+            <span class="badge">Sale</span>
+            <img src="static/img/children5.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">VANS "OF THE WALL"</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">34</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="sneaker" data-brand="polo" data-size="40">
+            <span class="badge">Sale</span>
             <img src="static/img/polo1.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">POLO</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">40</span>
-            <span class="sneaker__preci">$20000</span>
+            <span class="price-old">$30000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="sandalia" data-size="34,35,39">
+            <span class="badge">Sale</span>
             <img src="static/img/women01.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">SANDALIA BLANCA"</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">34, 35, 39</span>
-            <span class="sneaker__preci">$18500</span>
+            <span class="price-old">$19000</span>
+            <span class="price-new">$18500</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="adidas" data-size="26,30">
+            <span class="badge">Sale</span>
             <img src="static/img/image.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">ADIDAS CAMPUS(NENAS)</span>
             <span class="sneaker__name">Talles:</span>
-            <span class="nav__link">26</span>
-            <span class="sneaker__preci">$20000</span>
+            <span class="nav__link">26, 30</span>
+            <span class="price-old">$22000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
-          <article class="sneaker">
-            <div class="sneaker__sale">Sale</div>
+          <article class="sneaker" data-brand="nike" data-size="31,33">
+            <span class="badge">Sale</span>
             <img src="static/img/JordM2.png" alt="" class="sneaker__img" />
             <span class="sneaker__name">NIKE JORDAN(NENAS)</span>
             <span class="sneaker__name">Talles:</span>
             <span class="nav__link">31, 33</span>
-            <span class="sneaker__preci">$20000</span>
+            <span class="price-old">$25000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
             <button class="add-btn">Agregar al carrito</button>
           </article>
+          <article class="sneaker" data-brand="fila" data-size="37">
+            <span class="badge">Sale</span>
+            <img src="static/img/women01-1.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">FILA</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">37</span>
+            <span class="price-old">$33000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+          <article class="sneaker" data-brand="fila" data-size="37">
+            <span class="badge">Sale</span>
+            <img src="static/img/women01-2.png" alt="" class="sneaker__img" />
+            <span class="sneaker__name">FILA</span>
+            <span class="sneaker__name">Talles:</span>
+            <span class="nav__link">37</span>
+            <span class="price-old">$33000</span>
+            <span class="price-new">$20000</span>
+            <span class="discount-badge"></span>
+            <button class="add-btn">Agregar al carrito</button>
+          </article>
+</div>
 
-      </div>
+<!-- CARRITO -->
 
-      <!-- CARRITO -->
-      <div class="cart-box">
-        <h3>Carrito</h3>
-        <div id="cart-items"></div>
-        <p><strong>Total: $<span id="cart-total">0</span></strong></p>
-        <button class="whatsapp-btn" onclick="enviarWhatsApp()">
-          Enviar pedido por WhatsApp
-        </button>
-      </div>
-    </section>
+<div class="cart-box">
+
+<h3>Carrito</h3>
+
+<div id="cart-items"></div>
+
+<p>
+<strong>Total: $<span id="cart-total">0</span></strong>
+</p>
+
+<button class="whatsapp-btn" onclick="enviarWhatsApp()">
+Enviar pedido por WhatsApp
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- ===== SCRIPT MENU MOVIL ===== -->
 
 <script>
-let carrito = [];
 
-document.querySelectorAll(".add-btn").forEach((btn)=>{
-  btn.addEventListener("click", function(){
+const toggle = document.getElementById('nav-toggle')
+const nav = document.getElementById('nav-menu')
 
-    const producto = this.parentElement;
-    const nombre = producto.querySelector(".sneaker__name").innerText;
-    const precio = parseInt(
-      producto.querySelector(".sneaker__preci").innerText.replace("$","")
-    );
+if(toggle && nav){
 
-    carrito.push({nombre, precio});
-    actualizarCarrito();
-  });
-});
+toggle.addEventListener('click', () =>{
+nav.classList.toggle('show')
 
-function actualizarCarrito(){
-  const contenedor = document.getElementById("cart-items");
-  const totalSpan = document.getElementById("cart-total");
+})
 
-  contenedor.innerHTML = "";
-  let total = 0;
-
-  carrito.forEach((item)=>{
-    total += item.precio;
-    contenedor.innerHTML += 
-      `<div class="cart-item">${item.nombre} - $${item.precio}</div>`;
-  });
-
-  totalSpan.innerText = total;
 }
 
-function enviarWhatsApp(){
-
-  if(carrito.length === 0){
-    alert("El carrito está vacío");
-    return;
-  }
-
-  let mensaje = "Hola, quiero comprar:%0A";
-
-  carrito.forEach((item)=>{
-    mensaje += `- ${item.nombre} ($${item.precio})%0A`;
-  });
-
-  mensaje += `%0ATotal: $${carrito.reduce((a,b)=>a+b.precio,0)}`;
-
-  window.open(
-    "https://wa.me/5493751620900?text=" + mensaje,
-    "_blank"
-  );
-}
 </script>
 
-  </body>
+<!-- ===== SCRIPT CARRITO ===== -->
+
+    <script>
+    let carrito = [];
+
+    document.querySelectorAll(".add-btn").forEach((btn)=>{
+      btn.addEventListener("click", function(){
+
+        const producto = this.parentElement;
+        const nombre = producto.querySelector(".sneaker__name").innerText;
+        const precio = parseInt(
+          producto.querySelector(".price-new").innerText.replace("$","")
+        );
+
+        carrito.push({nombre, precio});
+        actualizarCarrito();
+      });
+    });
+
+    function actualizarCarrito(){
+      const contenedor = document.getElementById("cart-items");
+      const totalSpan = document.getElementById("cart-total");
+
+      contenedor.innerHTML = "";
+      let total = 0;
+
+      carrito.forEach((item)=>{
+        total += item.precio;
+        contenedor.innerHTML += 
+          `<div class="cart-item">${item.nombre} - $${item.precio}</div>`;
+      });
+
+      totalSpan.innerText = total;
+    }
+
+    function enviarWhatsApp(){
+
+      if(carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+      }
+
+      let mensaje = "Hola, quiero comprar:%0A";
+
+      carrito.forEach((item)=>{
+        mensaje += `- ${item.nombre} ($${item.precio})%0A`;
+      });
+
+      mensaje += `%0ATotal: $${carrito.reduce((a,b)=>a+b.precio,0)}`;
+
+      window.open(
+        "https://wa.me/5493751620900?text=" + mensaje,
+        "_blank"
+      );
+    }
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+
+    const brandFilter = document.getElementById("brandFilter");
+    const sizeFilter = document.getElementById("sizeFilter");
+    const searchInput = document.getElementById("searchInput");
+
+    const counter = document.getElementById("resultsCounter");
+    const noResults = document.getElementById("noResultsMessage");
+
+    const sneakers = document.querySelectorAll(".sneaker");
+
+    const sections = {
+    new: document.getElementById("new"),
+    women: document.getElementById("Women"),
+    children: document.getElementById("children"),
+    girls: document.getElementById("girls")
+    };
+
+    const collection = document.getElementById("collectionOcult");
+
+    function filterSneakers(){
+
+    const brand = brandFilter ? brandFilter.value : "all";
+    const size = sizeFilter ? sizeFilter.value : "all";
+    const search = searchInput ? searchInput.value.toLowerCase() : "";
+
+    let searching = (brand !== "all" || size !== "all" || search !== "");
+
+    if(collection){
+    collection.style.display = searching ? "none" : "";
+    }
+
+    let visibleCount = 0;
+
+    sneakers.forEach(function(s){
+
+    const sBrand = s.dataset.brand || "";
+    const sSizes = s.dataset.size ? s.dataset.size.split(",").map(x => x.trim()) : [];
+
+    const nameElement = s.querySelector(".sneaker__name");
+    const name = nameElement ? nameElement.textContent.toLowerCase() : "";
+
+    const brandMatch = (brand === "all" || sBrand === brand);
+    const sizeMatch = (size === "all" || sSizes.includes(size));
+    const searchMatch = name.includes(search);
+
+    if(brandMatch && sizeMatch && searchMatch){
+    s.style.display = "";
+    visibleCount++;
+    }else{
+    s.style.display = "none";
+    }
+
+    });
+
+    Object.values(sections).forEach(section => {
+
+    if(!section) return;
+
+    const visibleProducts = section.querySelectorAll(".sneaker:not([style*='display: none'])");
+
+    if(searching && visibleProducts.length === 0){
+    section.style.display = "none";
+    }else{
+    section.style.display = "";
+    }
+
+    });
+
+    if(counter){
+    counter.textContent = visibleCount > 0 ? visibleCount + " sneakers found" : "";
+    }
+
+    if(noResults){
+    if(visibleCount === 0 && searching){
+    noResults.style.display = "block";
+    }else{
+    noResults.style.display = "none";
+    }
+    }
+
+    }
+
+    if(brandFilter) brandFilter.addEventListener("change", filterSneakers);
+    if(sizeFilter) sizeFilter.addEventListener("change", filterSneakers);
+    if(searchInput) searchInput.addEventListener("keyup", filterSneakers);
+
+    });
+    </script>
+<script src="static/js/main.js"></script>
+</body>
 </html>

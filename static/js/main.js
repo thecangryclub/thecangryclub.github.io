@@ -1,3 +1,4 @@
+console.log("script cargado");
 /*===== MENU SHOW =====*/
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId),
@@ -52,3 +53,43 @@ window.onscroll = () => {
   if (this.scrollY >= 200) nav.classList.add("scroll-header");
   else nav.classList.remove("scroll-header");
 };
+
+/*===== ZONA DESCUENTOS =====*/
+document.querySelectorAll(".sneaker").forEach(product => {
+
+    const oldPriceEl = product.querySelector(".price-old");
+    const newPriceEl = product.querySelector(".price-new");
+    const badge = product.querySelector(".discount-badge");
+
+    if(oldPriceEl && newPriceEl){
+
+        let oldPrice = oldPriceEl.textContent.replace(/[^0-9]/g,"");
+        let newPrice = newPriceEl.textContent.replace(/[^0-9]/g,"");
+
+        oldPrice = parseInt(oldPrice);
+        newPrice = parseInt(newPrice);
+
+        let discount = Math.round(((oldPrice - newPrice) / oldPrice) * 100);
+
+        let emoji = "";
+
+        if(discount >= 50) emoji = "👑🔥";
+        else if(discount >= 45) emoji = "⚡";
+        else if(discount >= 40) emoji = "🧨";
+        else if(discount >= 35) emoji = "💥";
+        else if(discount >= 30) emoji = "🚀";
+        else if(discount >= 25) emoji = "🔥🔥";
+        else if(discount >= 20) emoji = "🔥";
+        else if(discount >= 15) emoji = "😎";
+        else if(discount >= 10) emoji = "😉";
+        else if(discount >= 5) emoji = "🙂";
+
+        if(discount > 0){
+            badge.textContent = "-" + discount + "% " + emoji;
+        }
+
+    }
+
+});
+
+

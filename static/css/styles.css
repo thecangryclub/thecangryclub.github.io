@@ -87,19 +87,44 @@ img {
 }
 
 /*BUTTONS*/
-.button {
-  display: inline-block;
-  background-color: #141414;
-  color: #fff;
-  padding: 1.125rem 2rem;
-  border-radius: 0.5rem;
-  transition: 0.3s;
+.product{
+background:white;
+border-radius:15px;
+padding:12px;
+box-shadow:0 5px 12px rgba(0,0,0,0.05);
+
+display:flex;
+flex-direction:column;
+height:100%;
 }
 
-.button:hover {
-  transform: translateY(-0.25rem);
+.button{
+
+margin-top:auto;
+padding:6px 16px;
+
+background:white;
+color:black;
+
+border:2px solid black;
+border-radius:30px;
+
+font-size:13px;
+cursor:pointer;
+
+transition:0.25s;
+
 }
 
+/* interacción */
+
+.button:hover,
+.button:active{
+
+background:black;
+color:white;
+
+}
 .button-light {
   display: inline-block;
   color: #141414;
@@ -516,6 +541,116 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.hidden{
+  display:none;
+}
+.search-box{
+  display:flex;
+  justify-content:center;
+  margin:20px 0;
+}
+
+#searchInput{
+  width:300px;
+  padding:10px 15px;
+  border-radius:25px;
+  border:1px solid #ccc;
+  font-size:16px;
+  outline:none;
+}
+
+#searchInput:focus{
+  border-color:#000;
+}
+.sneaker{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  transition:all 0.35s ease;
+  cursor:pointer;
+}
+
+.sneaker:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 35px rgba(0,0,0,0.18);
+}
+
+.sneaker__img{
+  transition:transform 0.35s ease;
+}
+
+.sneaker:hover .sneaker__img{
+  transform:scale(1.08) rotate(-2deg);
+}
+
+.sneaker__name{
+  transition:color 0.3s;
+}
+
+.sneaker:hover .sneaker__name{
+  color:#111;
+} 
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:black;
+  color:white;
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:20px;
+  font-weight:600;
+  z-index:10;
+}
+#resultsCounter{
+  text-align:center;
+  margin:15px 0;
+  font-weight:600;
+  font-size:16px;
+  color:#333;
+}
+#noResultsMessage{
+  display:none;
+  text-align:center;
+  margin:30px 0;
+}
+
+#noResultsMessage p{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+#noResultsMessage span{
+  color:#777;
+  font-size:14px;
+}
+
+.price-old{
+color:#888;
+text-decoration:line-through;
+display:block;
+font-size:0.95rem;
+}
+
+.price-new{
+  color:#111;
+  font-weight:bold;
+  font-size:1.1rem;
+  display:block;
+}
+.discount-badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:#36454f;
+  color:white;
+  font-weight:bold;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:0.75rem;
+}
+
 /* ===== MEDIA QUERIES=====*/
 @media screen and (min-width: 578px) {
   .collection__container {
@@ -537,6 +672,116 @@ img {
 
   .new__mens {
     align-items: center;
+  }
+
+  .hidden{
+    display:none;
+  }
+  .search-box{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+  }
+
+  #searchInput{
+    width:300px;
+    padding:10px 15px;
+    border-radius:25px;
+    border:1px solid #ccc;
+    font-size:16px;
+    outline:none;
+  }
+
+  #searchInput:focus{
+    border-color:#000;
+  }
+  .sneaker{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    transition:all 0.35s ease;
+    cursor:pointer;
+  }
+
+  .sneaker:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(0,0,0,0.18);
+  }
+
+  .sneaker__img{
+    transition:transform 0.35s ease;
+  }
+
+  .sneaker:hover .sneaker__img{
+    transform:scale(1.08) rotate(-2deg);
+  }
+
+  .sneaker__name{
+    transition:color 0.3s;
+  }
+
+  .sneaker:hover .sneaker__name{
+    color:#111;
+  } 
+  .badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:black;
+    color:white;
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    font-weight:600;
+    z-index:10;
+  }
+  #resultsCounter{
+    text-align:center;
+    margin:15px 0;
+    font-weight:600;
+    font-size:16px;
+    color:#333;
+  }
+  #noResultsMessage{
+    display:none;
+    text-align:center;
+    margin:30px 0;
+  }
+
+  #noResultsMessage p{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  #noResultsMessage span{
+    color:#777;
+    font-size:14px;
+  }
+
+  .price-old{
+  color:#888;
+  text-decoration:line-through;
+  display:block;
+  font-size:0.95rem;
+  }
+
+  .price-new{
+    color:#111;
+    font-weight:bold;
+    font-size:1.1rem;
+    display:block;
+  }
+  .discount-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#36454f;
+    color:white;
+    font-weight:bold;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:0.75rem;
   }
 }
 @media screen and (min-width: 768px) {
@@ -619,6 +864,115 @@ img {
     height: -moz-max-content;
     height: max-content;
   }
+  .hidden{
+    display:none;
+  }
+  .search-box{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+  }
+
+  #searchInput{
+    width:300px;
+    padding:10px 15px;
+    border-radius:25px;
+    border:1px solid #ccc;
+    font-size:16px;
+    outline:none;
+  }
+
+  #searchInput:focus{
+    border-color:#000;
+  }
+  .sneaker{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    transition:all 0.35s ease;
+    cursor:pointer;
+  }
+
+  .sneaker:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(0,0,0,0.18);
+  }
+
+  .sneaker__img{
+    transition:transform 0.35s ease;
+  }
+
+  .sneaker:hover .sneaker__img{
+    transform:scale(1.08) rotate(-2deg);
+  }
+
+  .sneaker__name{
+    transition:color 0.3s;
+  }
+
+  .sneaker:hover .sneaker__name{
+    color:#111;
+  } 
+  .badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:black;
+    color:white;
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    font-weight:600;
+    z-index:10;
+  }
+  #resultsCounter{
+    text-align:center;
+    margin:15px 0;
+    font-weight:600;
+    font-size:16px;
+    color:#333;
+  }
+  #noResultsMessage{
+    display:none;
+    text-align:center;
+    margin:30px 0;
+  }
+
+  #noResultsMessage p{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  #noResultsMessage span{
+    color:#777;
+    font-size:14px;
+  }
+  .price-old{
+    color:#888;
+    text-decoration:line-through;
+    display:block;
+    font-size:0.95rem;
+  }
+
+  .price-new{
+    color:#111;
+    font-weight:bold;
+    font-size:1.1rem;
+    display:block;
+  }
+  .discount-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#36454f;
+    color:white;
+    font-weight:bold;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:0.75rem;
+  }
+
 }
 @media screen and (min-width: 1024px) {
   .bd-grid {
@@ -648,5 +1002,113 @@ img {
 
   .new__mens-img {
     margin-bottom: 3rem;
+  }
+  .hidden{
+    display:none;
+  }
+  .search-box{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+  }
+
+  #searchInput{
+    width:300px;
+    padding:10px 15px;
+    border-radius:25px;
+    border:1px solid #ccc;
+    font-size:16px;
+    outline:none;
+  }
+
+  #searchInput:focus{
+    border-color:#000;
+  }
+  .sneaker{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    transition:all 0.35s ease;
+    cursor:pointer;
+  }
+
+  .sneaker:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(0,0,0,0.18);
+  }
+
+  .sneaker__img{
+    transition:transform 0.35s ease;
+  }
+
+  .sneaker:hover .sneaker__img{
+    transform:scale(1.08) rotate(-2deg);
+  }
+
+  .sneaker__name{
+    transition:color 0.3s;
+  }
+
+  .sneaker:hover .sneaker__name{
+    color:#111;
+  } 
+  .badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:black;
+    color:white;
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    font-weight:600;
+    z-index:10;
+  }
+  #resultsCounter{
+    text-align:center;
+    margin:15px 0;
+    font-weight:600;
+    font-size:16px;
+    color:#333;
+  }
+  #noResultsMessage{
+    display:none;
+    text-align:center;
+    margin:30px 0;
+  }
+
+  #noResultsMessage p{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+
+  #noResultsMessage span{
+    color:#777;
+    font-size:14px;
+  }
+
+  .price-old{
+    color:#888;
+    text-decoration:line-through;
+    display:block;
+    font-size:0.95rem;
+  }
+  .price-new{
+    color:#111;
+    font-weight:bold;
+    font-size:1.1rem;
+    display:block;
+  }
+  .discount-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:#36454f;
+    color:white;
+    font-weight:bold;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:0.75rem;
   }
 }/*# sourceMappingURL=styles.css.map */

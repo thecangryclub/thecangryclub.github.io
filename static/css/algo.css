@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/*===== BASE =====*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 3rem 0 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.938rem;
+  font-weight: 500;
+  color: #141414;
+  line-height: 1.6;
+}
+
+h1,h2,h3,p,ul {margin:0;}
+
+ul{
+padding:0;
+list-style:none;
+}
+
+a{
+text-decoration:none;
+color:#141414;
+}
+
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+/*===== SECTION =====*/
+.section{
+padding:5rem 0 2rem;
+}
+
+.section-title{
+position:relative;
+font-size:1.25rem;
+margin-bottom:2rem;
+text-align:center;
+letter-spacing:0.1rem;
+}
+
+.section-title::after{
+content:"";
+position:absolute;
+width:56px;
+height:0.18rem;
+top:-1rem;
+left:0;
+right:0;
+margin:auto;
+background-color:#141414;
+}
+
+/*===== GRID =====*/
+.bd-grid{
+display:grid;
+grid-template-columns:100%;
+column-gap:2rem;
+width:calc(100% - 2rem);shop.html
+margin-left:1rem;
+margin-right:1rem;
+}
+
+/*===== BUTTON =====*/
+.button{
+display:inline-block;
+background-color:#141414;
+color:#fff;
+padding:1.125rem 2rem;
+border-radius:0.5rem;
+transition:0.3s;
+}
+
+.button:hover{
+transform:translateY(-0.25rem);
+}
+
+/*===== HEADER =====*/
+.l-header{
+width:100%;
+position:fixed;
+top:0;
+left:0;
+z-index:100;
+background-color:#f2f2f2;
+}
+
+/*===== NAV =====*/
+.nav{
+height:3rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.nav__logo{
+font-weight:600;
+}
+
+.nav__item{
+margin-bottom:2rem;
+}
+
+.nav__toggle,
+.nav__shop{
+font-size:1.3rem;
+cursor:pointer;
+}
+
+/*===== HOME =====*/
+.home{
+background-color:#f2f2f2;
+overflow:hidden;
+}
+
+.home__container{
+height:calc(100vh - 3rem);
+}
+
+.home__sneaker{
+position:relative;
+display:flex;
+justify-content:center;
+align-self:center;
+}
+
+.home__shape{
+width:220px;
+height:220px;
+background-color:#141414;
+border-radius:50%;
+}
+
+.home__img{
+position:absolute;
+top:1.5rem;
+width:275px;
+transform:rotate(-30deg);
+}
+
+/*===== PRODUCTS =====*/
+.featured__container{
+row-gap:2rem;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.sneaker{
+position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:2rem;
+background-color:#f2f2f2;
+border-radius:0.5rem;
+transition:0.3s;
+}
+
+.sneaker:hover{
+transform:translateY(-0.5rem);
+}
+
+.sneaker__img{
+width:220px;
+margin-top:1.5rem;
+margin-bottom:3rem;
+transform:rotate(-30deg);
+filter:drop-shadow(0 12px 8px rgba(0,0,0,0.2));
+}
+
+.sneaker__name,
+.sneaker__preci{
+font-size:1.25rem;
+letter-spacing:0.1rem;
+font-weight:700;
+}
+
+.sneaker__preci{
+margin-bottom:2rem;
+}
+
+/* ========================= */
+/* SISTEMA DE PRECIOS */
+/* ========================= */
+
+.price-old{
+color:#888;
+text-decoration:line-through;
+display:block;
+font-size:0.95rem;
+}
+
+.price-new{
+color:#111;
+font-weight:bold;
+font-size:1.1rem;
+display:block;
+}
+
+.discount-badge{
+position:absolute;
+top:10px;
+right:10px;
+background:#36454f;
+color:white;
+font-weight:bold;
+padding:5px 10px;
+border-radius:20px;
+font-size:0.75rem;
+z-index:10;
+}
+
+/*===== SEARCH =====*/
+
+.hidden{
+display:none;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+margin:20px 0;
+}
+
+#searchInput{
+width:300px;
+padding:10px 15px;
+border-radius:25px;
+border:1px solid #ccc;
+font-size:16px;
+outline:none;
+}
+
+#searchInput:focus{
+border-color:#000;
+}
+
+#resultsCounter{
+text-align:center;
+margin:15px 0;
+font-weight:600;
+font-size:16px;
+color:#333;
+}
+
+#noResultsMessage{
+display:none;
+text-align:center;
+margin:30px 0;
+}
+
+/*===== HOVER PRODUCTO =====*/
+
+.sneaker{
+overflow:hidden;
+border-radius:12px;
+transition:all 0.35s ease;
+cursor:pointer;
+}
+
+.sneaker:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 35px rgba(0,0,0,0.18);
+}
+
+.sneaker__img{
+transition:transform 0.35s ease;
+}
+
+.sneaker:hover .sneaker__img{
+transform:scale(1.08) rotate(-2deg);
+}
+
+.sneaker__name{
+transition:color 0.3s;
+}
+
+.sneaker:hover .sneaker__name{
+color:#111;
+}
+
+/*===== BADGE =====*/
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:black;
+color:white;
+padding:4px 10px;
+font-size:12px;
+border-radius:20px;
+font-weight:600;
+z-index:10;
+}
+
+/*===== MEDIA =====*/
+
+@media screen and (max-width:768px){
+
+.nav__menu{
+position:fixed;
+top:3rem;
+left:-100%;
+width:70%;
+height:100vh;
+padding:2rem;
+background-color:#fff;
+transition:0.5s;
+}
+
+}
+
+@media screen and (min-width:768px){
+
+body{
+margin:0;
+}
+
+.section{
+padding:7rem 0.3rem;
+}
+
+.nav{
+height:4.5rem;
+}
+
+.nav__list{
+display:flex;
+}
+
+.nav__item{
+margin-left:3rem;
+margin-bottom:0;
+}
+
+.nav__toggle{
+display:none;
+}
+
+}
+
+@media screen and (min-width:1024px){
+
+.bd-grid{
+margin-left:auto;
+margin-right:auto;
+}
+
+.home__container{
+column-gap:8rem;
+}
+
+}
