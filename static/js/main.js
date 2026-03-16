@@ -1,3 +1,19 @@
+let cartItems = 0;
+
+function updateCartCount() {
+    const counter = document.getElementById("cart-count");
+    if (counter) {
+        counter.textContent = cartItems;
+    }
+function removeFromCart() {
+    if (cartItems > 0) {
+        cartItems--;
+        updateCartCount();
+    }
+}
+}
+
+
 console.log("script cargado");
 /*===== MENU SHOW =====*/
 const showMenu = (toggleId, navId) => {
@@ -92,4 +108,25 @@ document.querySelectorAll(".sneaker").forEach(product => {
 
 });
 
+// ==========================
+// PARALLAX GRAFFITI EFFECT
+// ==========================
 
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    const graffiti = document.body;
+
+    graffiti.style.setProperty(
+        "--bg-move",
+        `${scrollY * 0.09}px`
+    );
+});
+function toggleCart() {
+    const cart = document.querySelector(".cart");
+    cart.classList.toggle("open");
+}
+function toggleCart() {
+    const cart = document.getElementById("cart");
+    cart.classList.toggle("open");
+}

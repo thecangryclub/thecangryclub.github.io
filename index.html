@@ -10,6 +10,21 @@
 </head>
 
 <body>
+<div id="intro">
+  <div class="intro-content">
+    
+    <img src="static/img/logoIMG.png" alt="TheCangryClub Logo" class="intro-logo">
+
+    <div class="intro-info">
+      <p>📍 Km80, Pozo Azul, Misiones, Argentina</p>
+      <p>📍 Bernardo De Irigoyen, Misiones, Argentina</p>
+      <p>📱 WhatsApp: +54 9 3751 620900</p>
+      <p>📸 Instagram: @thecangryclub</p>
+      <p>🎵 TikTok: @thecangryclub</p>
+    </div>
+
+  </div>
+</div>
     <header class="l-header" id="header">
 
         <nav class="nav bd-grid">
@@ -17,7 +32,9 @@
                 <i class="bx bxs-grid"></i>
             </div>
 
-            <a href="#" class="nav__logo">THECANGRYCLUB</a>
+            <a href="#" class="nav__logo">
+              <img src="static/img/logo.png" alt="The Cangry Club" class="nav__logo-img">
+            </a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
@@ -44,7 +61,7 @@
             <div class="home__container bd-grid">
                 <div class="home__sneaker">
                     <div class="home__shape"></div>
-                    <img src="static/img/imghome.png" alt="Zapatilla Principal" class="home__img">
+                    <img src="static/img/imghome1.png" alt="Zapatilla Principal" class="home__img">
                 </div>
 
                 <div class="home__data">
@@ -118,12 +135,12 @@
                     <a href="shop.html" class="button">Ir a Shop!</a>
                 </article>
 
-                <article class="sneaker" data-brand="adidas" data-size="38,40,42">
+                <article class="sneaker" data-brand="adidas" data-size="38,42">
                     <span class="badge">Sale</span>
                     <img src="static/img/featured1.png" class="sneaker__img">
                     <span class="sneaker__name">ADIDAS CAMPUS</span>
                     <span class="sneaker__name">Talles:</span>
-                    <span class="nav__link">38, 40, 42</span>
+                    <span class="nav__link">38, 42</span>
                     <span class="price-old">$40.000</span>
                     <span class="price-new">$30.000</span>
                     <span class="discount-badge"></span>
@@ -444,12 +461,12 @@
               <a href="shop.html" class="button">Ir a Shop!</a>
             </article>
 
-            <article class="sneaker" data-brand="fila" data-size="35,36,37,38,39">
+            <article class="sneaker" data-brand="fila" data-size="35,36,37,38,38">
               <span class="badge">Sale</span>
               <img src="static/img/children3.png" alt="" class="sneaker__img" />
               <span class="sneaker__name">FILA</span>
               <span class="sneaker__name">Talles:</span>
-              <span class="nav__link">35 al 39</span>
+              <span class="nav__link">35 al 38</span>
               <span class="price-old">$33.000</span>
               <span class="price-new">$20.000</span>
               <span class="discount-badge"></span>
@@ -586,7 +603,11 @@
         <div class="footer__container bd-grid">
             <div class="footer__box">
                 <h3 class="footer__title">TheCangryClub</h3>
-                <p class="footer__description">New collection of shoes 2026</p>
+                <p class="footer__description">New collection of shoes 2026</br></br></p>
+                <p class="footer__description">📍 Km80, Pozo Azul, Misiones, Argentina</p>
+                <p class="footer__description">📍 Bernardo De Irigoyen, Misiones, Argentina</p>
+                <p class="footer__description">🎵 TikTok: @thecangryclub</p>
+
             </div>
 
             <div class="footer__box">
@@ -697,6 +718,27 @@
     if(brandFilter) brandFilter.addEventListener("change", filterSneakers);
     if(sizeFilter) sizeFilter.addEventListener("change", filterSneakers);
     if(searchInput) searchInput.addEventListener("keyup", filterSneakers);
+
+    });
+    /* =========================
+       HOME SCROLL EFFECT
+    ========================= */
+
+    window.addEventListener("scroll", () => {
+
+      const logo = document.querySelector(".home__img");
+      if(!logo) return;
+
+      const scrollY = window.scrollY;
+
+      // cuánto rota (ajustable)
+      const rotation = -30 + (scrollY * 0.08);
+
+      // límite para que no pase de 0°
+      const finalRotation = Math.min(rotation, 0);
+
+      logo.style.transform =
+          `rotate(${finalRotation}deg) translateY(${scrollY * 0.05}px)`;
 
     });
     </script>

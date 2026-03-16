@@ -18,6 +18,8 @@ html {
 }
 
 body {
+  position: relative;
+  z-index: 1;
   margin: 3rem 0 0 0;
   font-family: "Poppins", sans-serif;
   font-size: 0.938rem;
@@ -227,16 +229,24 @@ color:white;
   align-self: center;
 }
 .home__shape {
-  width: 220px;
-  height: 220px;
-  background-color: #141414;
-  border-radius: 50%;
+
+    position: relative;   /* ⭐ permite moverlo libremente */
+
+    width: 220px;
+    height: 220px;
+    background-color: #141414;
+    border-radius: 50%;
+
+    top: -7rem;   /* 👈 SUBE el círculo */
+    right: 1rem;  /* ajustá horizontal si querés */
 }
 .home__img {
   position: absolute;
-  top: 1.5rem;
+  top: -3rem;
   width: 275px;
   transform: rotate(-30deg);
+  transition: transform 0.1s linear; /* suavidad */
+  will-change: transform;
 }
 .home__new {
   display: block;
@@ -787,6 +797,7 @@ font-size:0.95rem;
 @media screen and (min-width: 768px) {
   body {
     margin: 0;
+
   }
 
   .section {
@@ -839,7 +850,7 @@ font-size:0.95rem;
 
   .home__img {
     width: 490px;
-    top: 3.5rem;
+    top: -3rem;
     right: 0;
     left: -1rem;
   }
@@ -1112,3 +1123,141 @@ font-size:0.95rem;
     font-size:0.75rem;
   }
 }/*# sourceMappingURL=styles.css.map */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image: url("../img/bg-graffiti.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+
+    opacity: 0.15;
+
+    filter:
+        grayscale(100%)
+        contrast(120%)
+        blur(1px);
+
+    mix-blend-mode: soft-light;
+
+    pointer-events: none;
+    z-index: -1;
+
+    /* 👇 NUEVO */
+    transform: translateY(var(--bg-move, 0));
+    will-change: transform;
+}
+.contenido {
+    /* Estilos para que el texto sea legible sobre la imagen */
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    font-family: sans-serif;
+}
+/* ========================= */
+/* FLOATING CART */
+/* ========================= */
+
+.floating-cart {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 60px;
+    height: 60px;
+
+    background: #111;
+    border: 2px solid #ffffff22;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px #00000080;
+
+    z-index: 9999;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-cart:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ffffff22;
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#intro{
+  position: fixed;
+  width:100%;
+  height:100%;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay:3s;
+}
+
+.intro-content{
+  text-align:center;
+  color:white;
+  font-family: Arial, sans-serif;
+}
+
+.intro-logo{
+  width:1000px;
+  margin-bottom:20px;
+  animation: logoFade 1.5s ease;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+.intro-info p{
+  opacity:0;
+  animation: textFade 1s ease forwards;
+}
+
+.intro-info p:nth-child(1){animation-delay:0.5s;}
+.intro-info p:nth-child(2){animation-delay:1s;}
+.intro-info p:nth-child(3){animation-delay:1.5s;}
+.intro-info p:nth-child(4){animation-delay:2s;}
+
+@keyframes logoFade{
+  from{opacity:0; transform:scale(0.8);}
+  to{opacity:1; transform:scale(1);}
+}
+
+@keyframes textFade{
+  to{opacity:1;}
+}
+
+@keyframes fadeOut{
+  to{
+    opacity:0;
+    visibility:hidden;
+  }
+}
